@@ -103,7 +103,7 @@ function register(e){
         isLoading = false;
     }else{
         axios.post(`${api_url}/auth/users`, {
-            name: registerCreds.name,
+            username: registerCreds.name,
             email: registerCreds.email,
             password: registerCreds.password,
         }).then(res=>{

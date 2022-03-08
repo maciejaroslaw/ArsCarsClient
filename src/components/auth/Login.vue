@@ -25,10 +25,12 @@
 <script setup>
 import { ref, reactive, inject } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 const store = useStore();
 const axios = inject('axios');
 const api_url = inject('api_url');
+const router = useRouter();
 
 let isLoading = ref(false);
 
@@ -44,9 +46,10 @@ function login(){
         email: loginCreds.email,
         password: loginCreds.password,
     }).then(res=>{
-        console.log(res)
+        store.dispatch("auth/login", res.data);
+        router.push('/');
     }).catch(err=>{
-        store.dispatch('err/setError', 'serwer error');
+        store.dispatch('err/setError', err.response.data.message);
         isLoading.value = false;
     })
 }

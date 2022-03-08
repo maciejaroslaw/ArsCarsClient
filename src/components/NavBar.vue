@@ -1,12 +1,11 @@
 <template>
     <nav class="navbar is-transparent has-text-weight-semibold" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <!-- <router-link to="/" class="navbar-item is-size-2">
-                Car Catalog
-            </router-link> -->
-            <div  class="hello block pt-4 pl-4">
+            <div  class="hello block pl-4">
+                <router-link to="/" class="navbar-item is-size-2">
+                    ArsCars
+                </router-link>
                 <div v-if="!currentUser">
-                    <h1 class="title is-1">Welcome</h1>
                     <h2 class="subtitle is-4 pl-2 no-margin">Please 
                     <router-link to="/register" class="">
                         Sign Up
@@ -31,8 +30,8 @@
             </div>
 
             <div class="navbar-end">
-                <div v-if="!currentUser" class="navbar-item">
-                    <div class="buttons">
+                <div v-if="!currentUser" class="navbar-item is-align-items-flex-start">
+                    <div class="buttons is-align-items-center is-justify-items-center">
                         <router-link to="/register" class="button is-link">
                             <strong>Sign up</strong>
                         </router-link>

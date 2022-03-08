@@ -32,9 +32,14 @@
 <script setup>
 import NavBar from './components/NavBar.vue';
 import { useStore } from 'vuex';
-import { computed } from 'vue';
+import { computed, onMounted, inject, ref } from 'vue';
 
 const store = useStore();
+const axios = inject('axios');
+const token = inject('token');
+const api_url = inject('api_url');
+
+const cars = ref([]);
 
 const currentUser = computed(() => store.state.auth.user);
 const errMsg = computed(() => store.state.err.errMsg);
@@ -43,7 +48,6 @@ const isErr = computed(() => store.state.err.isErr);
 function errOff(){
   store.dispatch('err/errOff');
 };
-
 
 
 // provide('', () => {
