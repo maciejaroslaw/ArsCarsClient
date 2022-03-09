@@ -1,54 +1,39 @@
 <template>
-    <div>
-        <!-- <transition-group
-            enter-active-class="animate__animated animate__bounceIn"
-            leave-active-class="animate__animated animate__bounceOut"
-            mode="out-in"
-            class="grid grid-cols-3 gap-4"
-            tag="div"
-        > -->
-        <transition
-            enter-active-class="animate__animated animate__bounceIn"
-            leave-active-class="animate__animated animate__bounceOut"
-            mode="out-in"
-            v-for="car in cars" :key="car.id" 
-        >
-            <div class="card group">
-                <header class="card-header">
-                    <!-- <p class="card-header-title">
-                    Component
-                    </p>
-                    <button class="card-header-icon" aria-label="more options">
-                    <span class="icon">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                    </button> -->
-                </header>
-                <div class="card-content pt-4 pl-4">
-                    <div class="content">
-                        <div>
-                            <div class="text-3xl">
-                                {{car.producer}}
-                                <span class="text-lg">{{car.model}}</span>
+    <div class="grid grid-cols-3 gap-4">
+        <div v-for="car in cars" :key="car.id" class="card group">
+            <header class="card-header">
+                <!-- <p class="card-header-title">
+                Component
+                </p>
+                <button class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+                </button> -->
+            </header>
+            <div class="card-content pt-4 pl-4">
+                <div class="content">
+                    <div>
+                        <div class="text-3xl">
+                            {{car.producer}}
+                            <span class="text-lg">{{car.model}}</span>
+                        </div>
+                        <div class="mt-5">
+                            <div>
+                                Year: <span>{{car.year}}</span>
                             </div>
-                            <div class="mt-5">
-                                <div>
-                                    Year: <span>{{car.year}}</span>
-                                </div>
-                                <div class="mt-2">
-                                    Mileage: <span>{{car.mileage}}</span>km
-                                </div>
+                            <div class="mt-2">
+                                Mileage: <span>{{car.mileage}}</span>km
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="card-footer opacity-0 group-hover:opacity-100 duration-300">
-                    <a href="#" class="card-footer-item">Edit</a>
-                    <a href="#" class="card-footer-item">Delete</a>
-                </footer>
             </div>
-        </transition>
-        <!-- </transition-group> -->
+            <footer class="card-footer opacity-0 group-hover:opacity-100 duration-300">
+                <a href="#" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item">Delete</a>
+            </footer>
+        </div>
     </div>
     <div class="mt-2">
         <nav class="pagination" role="navigation" aria-label="pagination">
@@ -101,9 +86,5 @@ onMounted(() => {
 //     display: grid;
 //     grid-template-columns: 1fr 1fr 1fr;
 // }
-.card{
-    &.v-enter-to {
-        transition-delay: 2s;
-    }
-}
+
 </style>
