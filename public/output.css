@@ -502,10 +502,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -515,28 +511,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1.5rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
 }
 
-.mt-0 {
-  margin-top: 0px;
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .block {
@@ -551,25 +535,46 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: grid;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .gap-4 {
   gap: 1rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
+.self-start {
+  align-self: flex-start;
 }
 
-.p-0 {
-  padding: 0px;
+.p-6 {
+  padding: 1.5rem;
 }
 
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .pl-4 {
@@ -584,25 +589,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1.5rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
-}
-
-.pt-0 {
-  padding-top: 0px;
-}
-
-.pt-2 {
-  padding-top: 0.5rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-lg {
@@ -610,14 +599,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .opacity-0 {
@@ -638,10 +622,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .duration-300 {
   transition-duration: 300ms;
-}
-
-.group:hover .group-hover\:visible {
-  visibility: visible;
 }
 
 .group:hover .group-hover\:opacity-100 {
