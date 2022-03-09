@@ -47,7 +47,7 @@
                     <a href="#" class="card-footer-item">Delete</a>
                 </footer>
             </div>
-        <transition>
+        </transition>
         <!-- </transition-group> -->
     </div>
     <div class="mt-2">
