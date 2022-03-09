@@ -72,7 +72,7 @@ let cars = computed(() => {
 
 onMounted(() => {
     console.log(process.env.VUE_APP_API_URL);
-    console.log(cars);
+    console.log(Math.ceil(props.cars / elements.value));
 })
 
 </script>
