@@ -1,13 +1,19 @@
 <template>
     <div>
-        <transition-group
+        <!-- <transition-group
             enter-active-class="animate__animated animate__bounceIn"
             leave-active-class="animate__animated animate__bounceOut"
             mode="out-in"
             class="grid grid-cols-3 gap-4"
             tag="div"
+        > -->
+        <transition
+            enter-active-class="animate__animated animate__bounceIn"
+            leave-active-class="animate__animated animate__bounceOut"
+            mode="out-in"
+            v-for="car in cars" :key="car.id" 
         >
-            <div v-for="car in cars" :key="car.id" class="card group">
+            <div class="card group">
                 <header class="card-header">
                     <!-- <p class="card-header-title">
                     Component
@@ -41,7 +47,8 @@
                     <a href="#" class="card-footer-item">Delete</a>
                 </footer>
             </div>
-        </transition-group>
+        <transition>
+        <!-- </transition-group> -->
     </div>
     <div class="mt-2">
         <nav class="pagination" role="navigation" aria-label="pagination">
