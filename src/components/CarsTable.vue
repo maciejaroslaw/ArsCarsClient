@@ -41,7 +41,7 @@
             <a class="pagination-next">Next page</a>
             <ul class="pagination-list">
                 <li v-for="p in pages" :key="p">
-                    <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">{{p}}</a>
+                    <a @click="goToPage(p)" :class="[p === page ? 'is-current' : '']" class="pagination-link" aria-label="Page 1" aria-current="page">{{p}}</a>
                 </li>
             </ul>
         </nav>
@@ -67,12 +67,16 @@ let cars = computed(() => {
     const end = start + elements.value - 1;
 
     return props.cars.filter((item, index) => index >= start && index <= end)
-})
+});
+
+function goToPage(p){
+    page.value = p;
+}
 
 
 onMounted(() => {
-    console.log(process.env.VUE_APP_API_URL);
-    console.log(Math.ceil(props.cars / elements.value));
+    // console.log(process.env.VUE_APP_API_URL);
+    // console.log(Math.ceil(props.cars / elements.value));
 })
 
 </script>
