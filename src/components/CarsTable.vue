@@ -95,7 +95,7 @@ onMounted(() => {
 //     grid-template-columns: 1fr 1fr 1fr;
 // }
 .card{
-    &.v-enter-active {
+    &.v-enter-to {
         transition-delay: .5s;
     }
 }
