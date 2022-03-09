@@ -96,7 +96,7 @@ onMounted(() => {
 // }
 .card{
     &.v-enter-to {
-        transition-delay: .5s;
+        position: absolute;
     }
 }
 </style>
