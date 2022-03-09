@@ -59,7 +59,7 @@ let page = ref(1);
 let elements = ref(9);
 
 let pages = computed(() => {
-    return Math.ceil(props.cars / elements);
+    return Math.ceil(props.cars / elements.value);
 })
 
 let cars = computed(() => {
