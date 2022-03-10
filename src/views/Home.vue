@@ -133,7 +133,7 @@ let carToDelete = reactive({
 
 
 function getCars(){
-  if(store.state.auth.user){
+  if(true){
     axios.get(`${api_url}/cars`, {headers: token()}).then(res=>{
       cars.value = res.data.cars;
     }).catch(err=>{
