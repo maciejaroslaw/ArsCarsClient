@@ -1,8 +1,29 @@
 <template>
-  <div class="container">
+  <div>
     <NavBar />
     
-    <div>
+    <div class="container">
+      <div class="mb-10">
+        <div v-if="!currentUser" class="text-center">
+          <h2 class="subtitle is-4 pl-2">ArsCars <br>
+            <router-link to="/register" >
+                Sign Up
+            </router-link>
+            <span class="is-size-6">Or 
+                <router-link to="/login">
+                Log in
+                </router-link>
+            </span>
+          </h2>
+        </div>
+        <div v-else>
+            <h2 class="no-margin text-5xl text-[#485fc7] pl-2">Hi!,
+            <span class="is-size-6">
+                {{currentUser.username.split(" ")[0]}}                        
+            </span>
+            </h2>
+        </div>
+      </div>
       <router-view v-slot="{Component, route}">
         <transition
           :enter-active-class="route.meta.enterClass"
@@ -49,6 +70,10 @@ function errOff(){
   store.dispatch('err/errOff');
 };
 
+onMounted(()=>{
+  console.log(currentUser);
+})
+
 
 // provide('', () => {
 //     let user = JSON.parse(localStorage.getItem('user'));
@@ -61,5 +86,7 @@ function errOff(){
 </script>
 
 <style>
-
+.router-link-active{
+  color: #4a4a4a;
+}
 </style>

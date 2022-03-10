@@ -19,7 +19,7 @@ const routes = [
     component: Login,
     meta: {
       enterClass: "animate__animated animate__slideInLeft",
-      leaveClass: "animate__animated animate__slideOutRight"
+      leaveClass: "animate__animated animate__fadeOutRightBig"
     }
   },
   {
@@ -28,7 +28,7 @@ const routes = [
     component: Register,
     meta: {
       enterClass: "animate__animated animate__slideInRight",
-      leaveClass: "animate__animated animate__slideOutLeft"
+      leaveClass: "animate__animated animate__fadeOutLeftBig"
     }
   },
 ];

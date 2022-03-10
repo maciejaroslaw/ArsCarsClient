@@ -1,6 +1,11 @@
 <template>
 <div v-if="currentUser">
-    <cars-table @addCar="modalAddCar = true" @delCar="handleDel" @editCar="handleEdit" :cars="cars" />
+    <div v-if="isLoading" class="flex justify-center">
+      <button class="button is-light is-loading is-large">White</button>
+    </div>
+    <div v-else>
+      <cars-table @addCar="modalAddCar = true" @delCar="handleDel" @editCar="handleEdit" :cars="cars" />
+    </div>
     <div class="modal edit-car-modal is-clipped" :class="[modalEditCar ? 'is-active': '']">
       <div class="modal-background"></div>
       <div class="modal-content">
@@ -89,33 +94,45 @@
       <button @click="modaDeleteTask = !modaDeleteTask" class="modal-close is-large" aria-label="close"></button>
     </div>
 </div>
-<div v-else>
-  <div class="fog"></div>
-  <div class="grid grid-cols-3 gap-4">
-    <div v-for="car in dummyCars" :key="car.id" class="card group">
-        <header class="card-header"></header>
-        <div class="card-content pt-4 pl-4">
-            <div class="content">
-                <div>
-                    <div class="text-3xl">
-                        {{car.producer}}
-                        <span class="text-lg">{{car.model}}</span>
-                    </div>
-                    <div class="mt-5">
-                        <div>
-                            Year: <span>{{car.year}}</span>
-                        </div>
-                        <div class="mt-2">
-                            Mileage: <span>{{car.mileage}}</span>km
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="card-footer opacity-0 group-hover:opacity-100 duration-300">
-            <a @click="editCar(car)" href="#" class="card-footer-item">Edit</a>
-            <a @click="delCar(car)" href="#" class="card-footer-item">Delete</a>
-        </footer>
+<div v-else class="absolute w-full">
+  <div class="md:hidden mt-24">
+    <div class="text-3xl w-full text-center">
+      Please <router-link to="/login">Log in</router-link> to see all cars
+    </div>  
+  </div>
+  <div class="hidden md:block">
+    <div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 45%);
+      z-index: 10;" class="fog absolute h-full z-10 w-full">
+      <div class="absolute top-1/2 transform text-3xl w-full text-center">
+        Please <router-link to="/login">Log in</router-link> to see all cars
+      </div>  
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 w-full">
+      <div v-for="car in dummyCars" :key="car.id" class="card group">
+          <header class="card-header"></header>
+          <div class="card-content pt-4 pl-4">
+              <div class="content">
+                  <div>
+                      <div class="text-3xl">
+                          {{car.producer}}
+                          <span class="text-lg">{{car.model}}</span>
+                      </div>
+                      <div class="mt-5">
+                          <div>
+                              Year: <span>{{car.year}}</span>
+                          </div>
+                          <div class="mt-2">
+                              Mileage: <span>{{car.mileage}}</span>km
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <footer class="card-footer invisible">
+              <a href="#" class="card-footer-item">Edit</a>
+              <a href="#" class="card-footer-item">Delete</a>
+          </footer>
+      </div>
     </div>
   </div>
 </div>
@@ -126,12 +143,13 @@ import CarsTable from '../components/CarsTable.vue';
 import { ref, reactive, inject, onMounted, computed} from 'vue';
 import {useStore} from 'vuex';
 
-const currentUser = computed(() => store.state.auth.user);
 
 const axios = inject('axios');
 const token = inject('token');
 const api_url = inject('api_url');
 const store = useStore();
+
+const currentUser = computed(() => store.state.auth.user);
 
 const dummyCars = ref([{"id":1,"producer":"Ford","model":"Five Hundred","year":2007,"date_of_entry":"2009-03-05","mileage":27763},
 {"id":2,"producer":"Pontiac","model":"Bonneville","year":1987,"date_of_entry":"1984-10-06","mileage":37362},
@@ -141,10 +159,10 @@ const dummyCars = ref([{"id":1,"producer":"Ford","model":"Five Hundred","year":2
 {"id":6,"producer":"Ford","model":"Taurus","year":2001,"date_of_entry":"2005-03-28","mileage":34955},
 {"id":7,"producer":"Mazda","model":"B-Series","year":1991,"date_of_entry":"1995-02-16","mileage":7615},
 {"id":8,"producer":"Maserati","model":"430","year":1991,"date_of_entry":"1980-05-13","mileage":27717},
-{"id":9,"producer":"Mercedes-Benz","model":"Sprinter 3500","year":2011,"date_of_entry":"2010-01-04","mileage":32561},
-{"id":10,"producer":"Suzuki","model":"Vitara","year":1999,"date_of_entry":"1972-08-15","mileage":27972}])
+{"id":9,"producer":"Mercedes-Benz","model":"Sprinter 3500","year":2011,"date_of_entry":"2010-01-04","mileage":32561}])
 
 const cars = ref([]);
+const isLoading = ref(true);
 
 const modalEditCar = ref(false);
 const modalDelCar = ref(false);
@@ -172,11 +190,13 @@ let carToDelete = reactive({
 
 
 function getCars(){
-  if(store.state.auth.user){
+  if(currentUser.value){
     axios.get(`${api_url}/cars`, {headers: token()}).then(res=>{
       cars.value = res.data.cars;
+      isLoading.value = false;
     }).catch(err=>{
       store.dispatch("err/setError", err.response.data.message);
+      isLoading.value = false;
     })
   }
 }

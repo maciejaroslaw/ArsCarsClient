@@ -79,7 +79,6 @@ const errors = reactive({
 
 function register(e){
     e.preventDefault();
-    isLoading = true;
     errors.name = false;
     errors.email = false;
     errors.password = false;
@@ -94,25 +93,22 @@ function register(e){
 
     if(!nameRegex.test(registerCreds.name) || registerCreds.name.split(' ').length < 2){
         errors.name = true;
-        isLoading = false;
     }else if(!emailRegex.test(registerCreds.email)){
         errors.email = true;
-        isLoading = false;
     }else if(!pswdRegex.test(registerCreds.password)){
         errors.password = true;
-        isLoading = false;
         errors.pswdReqs = true;
     }else if(registerCreds.password != registerCreds.password_confirm){
         errors.password = true;
-        isLoading = false;
     }else{
+        isLoading.value = true;
         axios.post(`${api_url}/auth/users`, {
             username: registerCreds.name,
             email: registerCreds.email,
             password: registerCreds.password,
         }).then(res=>{
             console.log(res);
-            isLoading = false;
+            isLoading.value = false;
 
             axios.post(`${api_url}/auth/login`, {
                 email: registerCreds.email,
@@ -129,7 +125,7 @@ function register(e){
                 errors.name = true;
             }
             store.dispatch("err/setError", err.response.data.message);
-            isLoading = false;
+            isLoading.value = false;
         });
     }
 }

@@ -1,22 +1,10 @@
 <template>
     <nav class="navbar is-transparent has-text-weight-semibold" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <div  class="hello block pl-4">
+            <div  class="hello block pl-4 mb-0">
                 <router-link to="/" class="navbar-item is-size-2">
                     ArsCars
                 </router-link>
-                <div v-if="!currentUser">
-                    <h2 class="subtitle is-4 pl-2 no-margin">Please 
-                    <router-link to="/register" class="">
-                        Sign Up
-                    </router-link>
-                    <span class="is-size-6">Or 
-                        <router-link to="/login">
-                        Log in
-                        </router-link>
-                    </span>
-                    </h2>
-                </div>
             </div>
             <a @click="menuActive = !menuActive" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
@@ -30,8 +18,8 @@
             </div>
 
             <div class="navbar-end">
-                <div v-if="!currentUser" class="navbar-item is-align-items-flex-start">
-                    <div class="buttons is-align-items-center is-justify-items-center">
+                <div v-if="!currentUser" class="navbar-item">
+                    <div class="buttons">
                         <router-link to="/register" class="button is-link">
                             <strong>Sign up</strong>
                         </router-link>

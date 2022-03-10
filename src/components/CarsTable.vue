@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid md:grid-cols-3 gap-4">
         <div v-for="car in cars" :key="car.id" class="card group">
             <header class="card-header">
                 <!-- <p class="card-header-title">
@@ -66,8 +66,8 @@
     </div>
     <div class="mt-4 px-4">
         <nav class="pagination is-right" role="navigation" aria-label="pagination">
-            <a class="pagination-previous">Previous</a>
-            <a class="pagination-next">Next page</a>
+            <!-- <a class="pagination-previous">Previous</a>
+            <a class="pagination-next">Next page</a> -->
             <ul class="pagination-list">
                 <li v-for="p in pages" :key="p">
                     <a @click="goToPage(p)" :class="[p === page ? 'is-current' : '']" class="pagination-link" aria-label="Page 1" aria-current="page">{{p}}</a>
@@ -90,10 +90,12 @@ let elements = computed(()=>{
 });
 
 let pages = computed(() => {
-    if(page.value === 1){
-        return Math.ceil(props.cars.length / elements.value - 1);
+    if(props.cars.length > 0){
+        if(page.value === 1){
+            return Math.ceil(props.cars.length / elements.value - 1);
+        }
+        return Math.ceil(props.cars.length / elements.value);
     }
-    return Math.ceil(props.cars.length / elements.value);
 })
 
 let cars = computed(() => {
