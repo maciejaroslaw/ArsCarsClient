@@ -109,6 +109,18 @@ function register(e){
         }).then(res=>{
             console.log(res);
             isLoading = false;
+
+            axios.post(`${api_url}/auth/login`, {
+                email: registerCreds.email,
+                password: registerCreds.password,
+            }).then(res=>{
+                store.dispatch("auth/login", res.data);
+                router.push('/');
+            }).catch(err=>{
+                store.dispatch('err/setError', err.response.data.message);
+                isLoading.value = false;
+            })
+
         }).catch(err=>{
             // console.log(err.response.data.message);
             // this.$store.dispatch('err/setError', err.response.data.message);
