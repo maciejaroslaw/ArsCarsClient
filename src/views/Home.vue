@@ -89,32 +89,34 @@
       <button @click="modaDeleteTask = !modaDeleteTask" class="modal-close is-large" aria-label="close"></button>
     </div>
 </div>
-<div v-else class="grid grid-cols-3 gap-4">
+<div v-else>
   <div class="fog"></div>
-  <div v-for="car in dummyCars" :key="car.id" class="card group">
-      <header class="card-header"></header>
-      <div class="card-content pt-4 pl-4">
-          <div class="content">
-              <div>
-                  <div class="text-3xl">
-                      {{car.producer}}
-                      <span class="text-lg">{{car.model}}</span>
-                  </div>
-                  <div class="mt-5">
-                      <div>
-                          Year: <span>{{car.year}}</span>
-                      </div>
-                      <div class="mt-2">
-                          Mileage: <span>{{car.mileage}}</span>km
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <footer class="card-footer opacity-0 group-hover:opacity-100 duration-300">
-          <a @click="editCar(car)" href="#" class="card-footer-item">Edit</a>
-          <a @click="delCar(car)" href="#" class="card-footer-item">Delete</a>
-      </footer>
+  <div class="grid grid-cols-3 gap-4">
+    <div v-for="car in dummyCars" :key="car.id" class="card group">
+        <header class="card-header"></header>
+        <div class="card-content pt-4 pl-4">
+            <div class="content">
+                <div>
+                    <div class="text-3xl">
+                        {{car.producer}}
+                        <span class="text-lg">{{car.model}}</span>
+                    </div>
+                    <div class="mt-5">
+                        <div>
+                            Year: <span>{{car.year}}</span>
+                        </div>
+                        <div class="mt-2">
+                            Mileage: <span>{{car.mileage}}</span>km
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="card-footer opacity-0 group-hover:opacity-100 duration-300">
+            <a @click="editCar(car)" href="#" class="card-footer-item">Edit</a>
+            <a @click="delCar(car)" href="#" class="card-footer-item">Delete</a>
+        </footer>
+    </div>
   </div>
 </div>
 </template>
