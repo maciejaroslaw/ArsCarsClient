@@ -1,5 +1,6 @@
 <template>
-<div v-if="currentUser">
+<div">
+    <div class="!currentUser"></div>
     <cars-table @addCar="modalAddCar = true" @delCar="handleDel" @editCar="handleEdit" :cars="cars" />
     <div class="modal edit-car-modal is-clipped" :class="[modalEditCar ? 'is-active': '']">
       <div class="modal-background"></div>
@@ -88,12 +89,6 @@
       </div>
       <button @click="modaDeleteTask = !modaDeleteTask" class="modal-close is-large" aria-label="close"></button>
     </div>
-</div>
-<div v-else>
-  <h1 class="title is-1">Welcome!</h1>
-  <h2 class="subtitle is-4">We strongly recomend you 
-    <router-link to="/login">Log In</router-link>
-  </h2>
 </div>
 </template>
 
