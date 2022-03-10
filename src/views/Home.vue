@@ -1,5 +1,5 @@
 <template>
-<div">
+<div>
     <div class="!currentUser"></div>
     <cars-table @addCar="modalAddCar = true" @delCar="handleDel" @editCar="handleEdit" :cars="cars" />
     <div class="modal edit-car-modal is-clipped" :class="[modalEditCar ? 'is-active': '']">
