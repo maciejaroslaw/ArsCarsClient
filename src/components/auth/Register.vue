@@ -51,11 +51,15 @@
 <script setup>
 import {ref, reactive, inject} from 'vue';
 import {useStore} from 'vuex';
+import { useRouter } from 'vue-router';
+
 
 
 const store = useStore();
 const axios = inject('axios');
 const api_url = inject('api_url');
+const router = useRouter();
+
 
 let isLoading = ref(false);
 
