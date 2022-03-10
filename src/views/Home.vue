@@ -89,7 +89,8 @@
       <button @click="modaDeleteTask = !modaDeleteTask" class="modal-close is-large" aria-label="close"></button>
     </div>
 </div>
-<div v-else>
+<div v-else class="grid grid-cols-3 gap-4">
+  <div class="fog"></div>
   <div v-for="car in dummyCars" :key="car.id" class="card group">
       <header class="card-header"></header>
       <div class="card-content pt-4 pl-4">
