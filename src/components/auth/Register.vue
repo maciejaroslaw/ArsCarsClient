@@ -116,9 +116,6 @@ function register(e){
             }).then(res=>{
                 store.dispatch("auth/login", res.data);
                 router.push('/');
-            }).catch(err=>{
-                store.dispatch('err/setError', err.response.data.message);
-                isLoading.value = false;
             })
 
         }).catch(err=>{
