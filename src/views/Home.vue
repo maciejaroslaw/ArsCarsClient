@@ -102,12 +102,13 @@ import CarsTable from '../components/CarsTable.vue';
 import { ref, reactive, inject, onMounted, computed} from 'vue';
 import {useStore} from 'vuex';
 
-const currentUser = computed(() => store.state.auth.user);
 
 const axios = inject('axios');
 const token = inject('token');
 const api_url = inject('api_url');
 const store = useStore();
+
+const currentUser = computed(() => store.state.auth.user);
 
 const cars = ref([]);
 
