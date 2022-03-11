@@ -85,15 +85,13 @@ const props = defineProps({
 });
 
 let page = ref(1);
-let elements = computed(()=>{
-    return page.value == 1 ? 8 : 9;
-});
+let elements = ref(8);
 
 let pages = computed(() => {
     if(props.cars.length > 0){
-        if(page.value === 1){
-            return Math.ceil(props.cars.length / elements.value - 1);
-        }
+        // if(page.value === 1){
+        //     return Math.ceil(props.cars.length / elements.value - 1);
+        // }
         return Math.ceil(props.cars.length / elements.value);
     }
 })
