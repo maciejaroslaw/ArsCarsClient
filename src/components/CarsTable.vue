@@ -34,7 +34,7 @@
                 <a @click="delCar(car)" href="#" class="card-footer-item">Delete</a>
             </footer>
         </div>
-        <div v-show="page == 1" class="card add-car self-start">
+        <div class="card add-car self-start">
             <header class="card-header">
                 <!-- <p class="card-header-title">
                 Component
