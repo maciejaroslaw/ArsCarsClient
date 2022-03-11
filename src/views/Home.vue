@@ -13,23 +13,23 @@
             <div class="block content">
                 <div>
                   <label class="label">Producer</label>
-                  <input class="input is-large" type="text" v-model="carToEdit.producer" placeholder="Large input">
+                  <input class="input is-large" type="text" v-model="carToEdit.producer" placeholder="Audi">
                 </div>
                 <div class="mt-4">
                   <label class="label">Model</label>
-                  <input class="input is-normal w-1/2" type="text" v-model="carToEdit.model" placeholder="Normal input">
+                  <input class="input is-normal w-1/2" type="text" v-model="carToEdit.model" placeholder="A4">
                 </div>
                 <div class="mt-4">
                  <label class="label">Year of production</label>
-                 <input class="input is-normal w-1/2" type="number" v-model="carToEdit.year" placeholder="Normal input">
+                 <input class="input is-normal w-1/2" type="number" v-model="carToEdit.year" placeholder="2015">
                 </div>
                 <div class="mt-4">
                   <label class="label">Mileage(km)</label>
-                  <input class="input is-normal w-1/2" type="number" v-model="carToEdit.mileage" placeholder="Normal input">
+                  <input class="input is-normal w-1/2" type="number" v-model="carToEdit.mileage" placeholder="120000">
                 </div>
                 <div class="mt-4">
                   <label class="label">Date of entry to ArsCars</label>
-                  <input class="input is-normal w-1/2" type="date" v-model="carToEdit.date_of_entry" placeholder="Normal input">
+                  <input class="input is-normal w-1/2" type="date" v-model="carToEdit.date_of_entry" placeholder="21.12.1999">
                 </div>
                 <div>
                   <div class="is-flex is-justify-content-space-between mt-4">
@@ -49,11 +49,11 @@
             <div class="block content">
                 <div>
                   <label class="label">Producer</label>
-                  <input class="input is-large" type="text" v-model="newCar.producer">
+                  <input class="input is-large" type="text" v-model="newCar.producer" placeholder="Audi">
                 </div>
                 <div class="mt-4">
                   <label class="label">Model</label>
-                  <input class="input is-normal w-1/2" type="text" v-model="newCar.model">
+                  <input class="input is-normal w-1/2" type="text" v-model="newCar.model" placeholder="A4">
                 </div>
                 <div class="mt-4">
                 <label class="label">Year of production</label>
@@ -61,11 +61,11 @@
                 </div>
                 <div class="mt-4">
                   <label class="label">Mileage(km)</label>
-                  <input class="input is-normal w-1/2" type="number" v-model="newCar.mileage" >
+                  <input class="input is-normal w-1/2" type="number" v-model="newCar.mileage" placeholder="120000">
                 </div>
                 <div class="mt-4">
                   <label class="label">Date of entry to ArsCars</label>
-                  <input class="input is-normal w-1/2" type="date" v-model="newCar.date_of_entry">
+                  <input class="input is-normal w-1/2" type="date" v-model="newCar.date_of_entry" placeholder="21.12.1999">
                 </div>
                 <div>
                   <div class="is-flex justify-center mt-4">
