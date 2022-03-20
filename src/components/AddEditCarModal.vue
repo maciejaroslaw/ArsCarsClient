@@ -90,7 +90,7 @@ function AddOrEdit(){
 		store.dispatch("err/setError", "wrong date of entry");
 	}else{
 		if(car.value.id === 0){
-			axios.post(`${api_url}/cars`, {car: car.value}, {headers: token()}).then(()=>{
+			axios.post(`${api_url}/cars`, {newCar: car.value}, {headers: token()}).then(()=>{
 				emit('closeModal');
 				store.dispatch("err/setError", "You added new Car!");
 				emit('refreshCars');
