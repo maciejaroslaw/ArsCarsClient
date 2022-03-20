@@ -89,9 +89,6 @@ let elements = ref(8);
 
 let pages = computed(() => {
     if(props.cars.length > 0){
-        // if(page.value === 1){
-        //     return Math.ceil(props.cars.length / elements.value - 1);
-        // }
         return Math.ceil(props.cars.length / elements.value);
     }
 })
