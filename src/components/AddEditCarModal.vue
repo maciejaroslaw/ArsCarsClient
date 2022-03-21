@@ -100,7 +100,7 @@ function AddOrEdit(){
 			})
 		}else{
 			axios.put(`${api_url}/cars/${car.value.id}}`, {
-				car,
+				carToEdit: car.value,
 			}, {headers: token()}).then(()=>{
 				emit('closeModal');
 				emit('refreshCars');

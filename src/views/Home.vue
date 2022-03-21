@@ -7,8 +7,8 @@
       <cars-table @addCar="modalAddCar = true" @delCar="handleDel" @editCar="handleEdit" :cars="cars" />
     </div>
     
-    <AddEditCarModal @closeModal="modalEditCar = false" :isOpen="modalEditCar" :CarToEdit="carToEdit" />
-    <AddEditCarModal @closeModal="modalAddCar = false" :isOpen="modalAddCar" :CarToEdit="null"/>
+    <AddEditCarModal @refreshCars="getCars" @closeModal="modalEditCar = false" :isOpen="modalEditCar" :CarToEdit="carToEdit" />
+    <AddEditCarModal @refreshCars="getCars" @closeModal="modalAddCar = false" :isOpen="modalAddCar" :CarToEdit="null"/>
     
     <DeleteCarModal @refreshCars="getCars" @closeModal="modalDelCar = false" :modalDelCar="modalDelCar" :carToDelete="carToDelete"/>
 </div>
