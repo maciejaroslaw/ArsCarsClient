@@ -49,7 +49,7 @@ function login(){
         store.dispatch("auth/login", res.data);
         router.push('/');
     }).catch(err=>{
-        store.dispatch('err/setError', err.response.data.message);
+        store.dispatch('err/setError', "Credentials invalid");
         isLoading.value = false;
     })
 }
